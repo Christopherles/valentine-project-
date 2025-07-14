@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: url('https://i.imgur.com/B2bUexn.jpg'); /* image florale type */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.envelope {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  background: #fffaf0;
+  border: 2px solid #e74c3c;
+  border-radius: 10px;
+  perspective: 1000px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fceaea;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+  transition: transform 1s ease;
+  z-index: 2;
+}
+
+.envelope.open .flap {
+  transform: rotateX(0deg);
+}
+
+.message {
+  position: absolute;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease 0.8s;
+  z-index: 1;
+  font-size: 14px;
+  color: #333;
+  background-color: #fffaf0;
+}
+
+.envelope.open .message {
+  opacity: 1;
+}
